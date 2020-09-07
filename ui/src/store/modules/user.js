@@ -6,7 +6,7 @@ const user = {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: [],
+    roles: ['admin'],
     permissions: []
   },
 
@@ -30,7 +30,7 @@ const user = {
 
   actions: {
     // 登录
-    Login({ commit }, userInfo) {
+    dispatchLogin({ commit }, userInfo) {
       const username = userInfo.username.trim()
       const password = userInfo.password
       const code = userInfo.code
@@ -66,7 +66,7 @@ const user = {
         })
       })
     },
-    
+
     // 退出系统
     LogOut({ commit, state }) {
       return new Promise((resolve, reject) => {

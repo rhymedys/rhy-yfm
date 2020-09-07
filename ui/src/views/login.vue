@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
+      <h1 class="title">研发管理平台</h1>
       <el-form-item prop="username">
         <el-input v-model="loginForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
@@ -18,7 +18,7 @@
           <svg-icon slot="prefix" icon-class="password" class="el-input__icon input-icon" />
         </el-input>
       </el-form-item>
-      <el-form-item prop="code">
+      <!-- <el-form-item prop="code">
         <el-input
           v-model="loginForm.code"
           auto-complete="off"
@@ -31,7 +31,7 @@
         <div class="login-code">
           <img :src="codeUrl" @click="getCode" class="login-code-img"/>
         </div>
-      </el-form-item>
+      </el-form-item> -->
       <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
@@ -46,10 +46,7 @@
         </el-button>
       </el-form-item>
     </el-form>
-    <!--  底部  -->
-    <div class="el-login-footer">
-      <span>Copyright © 2018-2019 ruoyi.vip All Rights Reserved.</span>
-    </div>
+    <CopyrightFooter class="el-login-footer"/>
   </div>
 </template>
 
@@ -57,6 +54,7 @@
 import { getCodeImg } from "@/api/login";
 import Cookies from "js-cookie";
 import { encrypt, decrypt } from '@/utils/jsencrypt'
+import CopyrightFooter from '@/components/CopyrightFooter'
 
 export default {
   name: "Login",
@@ -65,8 +63,8 @@ export default {
       codeUrl: "",
       cookiePassword: "",
       loginForm: {
-        username: "admin",
-        password: "admin123",
+        username: "",
+        password: "",
         rememberMe: false,
         code: "",
         uuid: ""
@@ -78,11 +76,14 @@ export default {
         password: [
           { required: true, trigger: "blur", message: "密码不能为空" }
         ],
-        code: [{ required: true, trigger: "change", message: "验证码不能为空" }]
+        // code: [{ required: true, trigger: "change", message: "验证码不能为空" }]
       },
       loading: false,
       redirect: undefined
     };
+  },
+  components:{
+    CopyrightFooter
   },
   watch: {
     $route: {
@@ -98,10 +99,10 @@ export default {
   },
   methods: {
     getCode() {
-      getCodeImg().then(res => {
-        this.codeUrl = "data:image/gif;base64," + res.img;
-        this.loginForm.uuid = res.uuid;
-      });
+      // getCodeImg().then(res => {
+      //   this.codeUrl = "data:image/gif;base64," + res.img;
+      //   this.loginForm.uuid = res.uuid;
+      // });
     },
     getCookie() {
       const username = Cookies.get("username");
@@ -127,7 +128,7 @@ export default {
             Cookies.remove('rememberMe');
           }
           this.$store
-            .dispatch("Login", this.loginForm)
+            .dispatch("dispatchLogin", this.loginForm)
             .then(() => {
               this.$router.push({ path: this.redirect || "/" });
             })
@@ -146,13 +147,12 @@ export default {
 .login {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100%;
-  background-image: url("../assets/image/login-background.jpg");
+  background-image:  url('../assets/svg/body.svg');
   background-size: cover;
 }
 .title {
-  margin: 0px auto 30px auto;
+  margin: 64px auto 30px auto;
   text-align: center;
   color: #707070;
 }
@@ -189,15 +189,12 @@ export default {
   }
 }
 .el-login-footer {
-  height: 40px;
-  line-height: 40px;
+
   position: fixed;
   bottom: 0;
   width: 100%;
-  text-align: center;
-  color: #fff;
   font-family: Arial;
-  font-size: 12px;
+
   letter-spacing: 1px;
 }
 .login-code-img {
