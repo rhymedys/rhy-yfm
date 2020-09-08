@@ -1,0 +1,26 @@
+.trans{
+  transition: transform .2s ease;
+}
+@size: 64px;
+.sider-trigger-a{
+  width: @size;
+  height: @size;
+  line-height: @size;
+  display: inline-block;
+  color: #5c6b77;
+  position: relative;
+  &:hover{
+    background: #f8f8f9;
+  }
+  i{
+    .trans;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  // &.collapsed i{
+  //   transform: rotateZ(90deg);
+  //   .trans;
+  // }
+}

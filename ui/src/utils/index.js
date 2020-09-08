@@ -1,16 +1,20 @@
 import { parseTime } from './ruoyi'
 
+import { forEach, hasOneOf, objEqual, isWebBrowserRuntime } from './tools'
+
+
+
 /**
  * 表格时间格式化
  */
 export function formatDate(cellValue) {
   if (cellValue == null || cellValue == "") return "";
-  var date = new Date(cellValue) 
+  var date = new Date(cellValue)
   var year = date.getFullYear()
   var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
-  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate() 
-  var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours() 
-  var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() 
+  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+  var hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+  var minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
   var seconds = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
   return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds
 }
@@ -330,7 +334,7 @@ export function makeMap(str, expectsLowerCase) {
     ? val => map[val.toLowerCase()]
     : val => map[val]
 }
- 
+
 export const exportDefault = 'export default '
 
 export const beautifierConf = {
@@ -387,4 +391,331 @@ export function camelCase(str) {
 export function isNumberStr(str) {
   return /^[+-]?(0|([1-9]\d*))(\.\d+)?$/g.test(str)
 }
- 
+
+
+
+export const emptyObj = {}
+
+/**
+ * 显示当天路由标题
+ *
+ * @export
+ * @param {*} routeObj
+ * @returns
+ */
+export function showTitle(routeObj, ctx) {
+  return (routeObj.meta && routeObj.meta.title) || routeObj.name
+}
+
+export const hasChild = (item) => {
+  return item.children && item.children.length !== 0
+}
+
+/**
+ * @param {Array} routeMetched 当前路由metched
+ * @returns {Array}
+ */
+export const getBreadCrumbList = (route, homeRoute) => {
+  const homeItem = {
+    ...homeRoute,
+    icon: homeRoute.meta && homeRoute.meta.icon,
+  }
+  const routeMetched = route.matched
+
+  // console.log('getBreadCrumbListRoute', route)
+
+  if (routeMetched.some((item) => item.name === homeRoute.name))
+    return [homeItem]
+  const res = routeMetched
+    .filter((item) => {
+      return (
+        routeConfigMap[item.name].meta === undefined ||
+        !routeConfigMap[item.name].meta.hideInBread
+      )
+    })
+    .map((item) => {
+      const mapMeta = routeConfigMap[item.name].meta
+      const meta = {
+        ...item.meta,
+        ...mapMeta,
+      }
+      if (meta.title && typeof meta.title === 'function') {
+        meta.__titleIsFunction__ = true
+        meta.title = meta.title(route)
+      }
+
+      const obj = {
+        icon: (mapMeta && mapMeta.icon) || '',
+        name: item.name,
+        meta,
+      }
+      return obj
+    })
+  // res = res.filter((item) => {
+  //   return !item.meta.hideInMenu
+  // })
+  return [
+    {
+      ...homeItem,
+      to: homeRoute.path,
+    },
+    ...res,
+  ]
+}
+
+/**
+ * @param {Array} routers 路由列表数组
+ * @description 用于找到路由列表中name为home的对象
+ */
+export const getHomeRoute = (routers, homeName = 'home') => {
+  let i = -1
+  const len = routers.length
+  let homeRoute = {}
+  while (++i < len) {
+    const item = routers[i]
+    if (item.children && item.children.length) {
+      const res = getHomeRoute(item.children, homeName)
+      if (res.name) return res
+    } else if (item.name === homeName) homeRoute = item
+  }
+  return homeRoute
+}
+
+/**
+ * @returns {Array} 其中的每个元素只包含路由原信息中的name, path, meta三项
+ */
+export const getTagNavListFromLocalstorage = () => {
+  const list = localStorage.tagNaveList
+  return list ? JSON.parse(list) : []
+}
+
+/**
+ * @description 本地存储和获取标签导航列表
+ */
+export const setTagNavListInLocalstorage = (list) => {
+  localStorage.tagNaveList = JSON.stringify(list)
+}
+
+/**
+ * @description 根据name/params/query判断两个路由对象是否相等
+ * @param {*} route1 路由对象
+ * @param {*} route2 路由对象
+ */
+export const routeEqual = (route1, route2) => {
+  const params1 = route1.params || {}
+  const params2 = route2.params || {}
+  const query1 = route1.query || {}
+  const query2 = route2.query || {}
+  return (
+    route1.name === route2.name &&
+    objEqual(params1, params2) &&
+    objEqual(query1, query2)
+  )
+}
+
+/**
+ * @param {Array} list 标签列表
+ * @param {String} name 当前关闭的标签的name
+ */
+export const getNextRoute = (list, route) => {
+  let res = {}
+  if (list.length === 2) {
+    res = getHomeRoute(list)
+  } else {
+    const index = list.findIndex((item) => routeEqual(item, route))
+    if (index === list.length - 1) res = list[list.length - 2]
+    else res = list[index + 1]
+  }
+  return res
+}
+
+/**
+ * 判断打开的标签列表里是否已存在这个新添加的路由对象
+ */
+export const routeHasExist = (tagNavList, routeItem) => {
+  const len = tagNavList.length
+  let res = false
+  doCustomTimes(len, (index) => {
+    if (routeEqual(tagNavList[index], routeItem)) res = true
+  })
+  return res
+}
+
+export const getRouteTitleHandled = (route) => {
+  const router = {
+    ...route,
+  }
+  const meta = {
+    ...route.meta,
+  }
+  let title = ''
+  if (meta.title) {
+    if (typeof meta.title === 'function') {
+      meta.__titleIsFunction__ = true
+      title = meta.title(router)
+    } else title = meta.title
+  }
+  meta.title = title
+  router.meta = meta
+  return router
+}
+
+export const localSave = (key, value) => {
+  localStorage.setItem(key, value)
+}
+
+/**
+ * @param {Number} times 回调函数需要执行的次数
+ * @param {Function} callback 回调函数
+ */
+export const doCustomTimes = (times, callback) => {
+  let i = -1
+  while (++i < times) {
+    callback(i)
+  }
+}
+
+export const findNodeUpperByClasses = (ele, classes) => {
+  const parentNode = ele.parentNode
+  if (parentNode) {
+    const classList = parentNode.classList
+    if (
+      classList &&
+      classes.every((className) => classList.contains(className))
+    ) {
+      return parentNode
+    } else {
+      return findNodeUpperByClasses(parentNode, classes)
+    }
+  }
+}
+
+/**
+ * 关联上一级数
+ *
+ * @export
+ * @param {*} list
+ * @param {*} parent
+ * @returns
+ */
+export function mapTreeToMap(list) {
+  let res = {}
+
+  if (Array.isArray(list)) {
+    list.forEach((val) => {
+      res[val.groupId] = val
+
+      if (val.children) {
+        res = {
+          ...res,
+          ...mapTreeToMap(val.children),
+        }
+      }
+    })
+  }
+
+  return res
+}
+
+/**
+ * 格式化组织结构
+ *
+ * @export
+ * @param {*} list
+ */
+export function normalizeGetGroupInfoResList(list, relativeParentIndex) {
+  let res = []
+  if (Array.isArray(list)) {
+    res = list.map((val, i) => {
+      const { subGroupInfo, groupName, groupId } = val
+
+      const mapVal = {
+        title: groupName,
+        expand: false,
+        originData: val,
+        relativeParentIndex,
+        children: subGroupInfo
+          ? normalizeGetGroupInfoResList(subGroupInfo, i)
+          : [],
+        groupId,
+      }
+
+      return mapVal
+    })
+  }
+
+  return res
+}
+
+export function makeDebounceFn(cbs = {}, timeout = 200) {
+  fn.resetDebounceId = (id = fn.debounceId) => {
+    if (id) {
+      clearTimeout(id)
+      fn.debounceId = undefined
+    }
+  }
+  fn.debounceId = undefined
+  fn.pendingId = 0
+
+  function fn(...args) {
+    const pendingId = (fn.pendingId += 1)
+    cbs.beforePending && cbs.beforePending.call(this, pendingId, ...args)
+
+    fn.resetDebounceId()
+    const debounceId = setTimeout(async () => {
+      cbs.pending && (await cbs.pending.call(this, pendingId, ...args))
+      fn.resetDebounceId(debounceId)
+    }, timeout)
+
+    fn.debounceId = debounceId
+  }
+
+  return fn
+}
+
+export function showSecondConfirm(config = {}) {
+  this.$Modal.confirm({
+    title: '警告',
+    content: '是否执行该操作？',
+    ...config,
+  })
+}
+
+
+
+export function isObject(obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+export function isArray(obj) {
+  return Object.prototype.toString.call(obj) === '[object Array]'
+}
+
+export function deepCopyData(obj) {
+  let res = {}
+  if (isObject(obj)) {
+    res = {}
+    Object.keys(obj).forEach((k) => {
+      if (Object.hasOwnProperty.call(obj, k)) {
+        if (isObject(obj[k]) || isArray(obj[k])) {
+          res[k] = deepCopyData(obj[k])
+        } else {
+          res[k] = obj[k]
+        }
+      }
+    })
+  } else if (isArray(obj)) {
+    res = []
+    obj.forEach((v, i) => {
+      if (isArray(v) || isObject(v)) {
+        res[i] = deepCopyData(v)
+      } else {
+        res[i] = v
+      }
+    })
+  }
+
+  return res
+}
+
+export { isWebBrowserRuntime }

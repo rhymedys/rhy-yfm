@@ -22,6 +22,16 @@ import { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, 
 import Pagination from "@/components/Pagination";
 //自定义表格工具扩展
 import RightToolbar from "@/components/RightToolbar"
+import 'iview/dist/styles/iview.css';    // 使用 CSS
+
+import iView from 'view-design'
+
+import locale from 'view-design/dist/locale/zh-CN' // Change locale, check node_modules/iview/dist/locale
+
+
+Vue.use(iView, {
+  locale,
+})
 
 // 全局方法挂载
 Vue.prototype.getDicts = getDicts
