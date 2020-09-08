@@ -31,7 +31,7 @@
         <div class="login-code">
           <img :src="codeUrl" @click="getCode" class="login-code-img"/>
         </div>
-      </el-form-item> -->
+      </el-form-item>-->
       <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
       <el-form-item style="width:100%;">
         <el-button
@@ -46,56 +46,56 @@
         </el-button>
       </el-form-item>
     </el-form>
-    <CopyrightFooter class="el-login-footer"/>
+    <CopyrightFooter class="el-login-footer" />
   </div>
 </template>
 
 <script>
-import { getCodeImg } from "@/api/login";
-import Cookies from "js-cookie";
+import { getCodeImg } from '@/api/login'
+import Cookies from 'js-cookie'
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 import CopyrightFooter from '@/components/CopyrightFooter'
 
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      codeUrl: "",
-      cookiePassword: "",
+      codeUrl: '',
+      cookiePassword: '',
       loginForm: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
         rememberMe: false,
-        code: "",
-        uuid: ""
+        code: '',
+        uuid: '',
       },
       loginRules: {
         username: [
-          { required: true, trigger: "blur", message: "用户名不能为空" }
+          { required: true, trigger: 'blur', message: '用户名不能为空' },
         ],
         password: [
-          { required: true, trigger: "blur", message: "密码不能为空" }
+          { required: true, trigger: 'blur', message: '密码不能为空' },
         ],
         // code: [{ required: true, trigger: "change", message: "验证码不能为空" }]
       },
       loading: false,
-      redirect: undefined
-    };
+      redirect: undefined,
+    }
   },
-  components:{
-    CopyrightFooter
+  components: {
+    CopyrightFooter,
   },
   watch: {
     $route: {
-      handler: function(route) {
-        this.redirect = route.query && route.query.redirect;
+      handler: function (route) {
+        this.redirect = route.query && route.query.redirect
       },
-      immediate: true
-    }
+      immediate: true,
+    },
   },
   created() {
-    this.getCode();
-    this.getCookie();
+    this.getCode()
+    this.getCookie()
   },
   methods: {
     getCode() {
@@ -105,42 +105,50 @@ export default {
       // });
     },
     getCookie() {
-      const username = Cookies.get("yfmusername");
-      const password = Cookies.get("yfmpassword");
+      const username = Cookies.get('yfmusername')
+      const password = Cookies.get('yfmpassword')
       const rememberMe = Cookies.get('yfmrememberMe')
       this.loginForm = {
         username: username === undefined ? this.loginForm.username : username,
-        password: password === undefined ? this.loginForm.password : decrypt(password),
-        rememberMe: rememberMe === undefined ? false : Boolean(rememberMe)
-      };
+        password:
+          password === undefined ? this.loginForm.password : decrypt(password),
+        rememberMe: rememberMe === undefined ? false : Boolean(rememberMe),
+      }
     },
     handleLogin() {
-      this.$refs.loginForm.validate(valid => {
+      this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.loading = true;
+          this.loading = true
           if (this.loginForm.rememberMe) {
-            Cookies.set("yfmusername", this.loginForm.username, { expires: 30 });
-            Cookies.set("yfmpassword", encrypt(this.loginForm.password), { expires: 30 });
-            Cookies.set('yfmrememberMe', this.loginForm.rememberMe, { expires: 30 });
+            Cookies.set('yfmusername', this.loginForm.username, { expires: 30 })
+            Cookies.set('yfmpassword', encrypt(this.loginForm.password), {
+              expires: 30,
+            })
+            Cookies.set('yfmrememberMe', this.loginForm.rememberMe, {
+              expires: 30,
+            })
           } else {
-            Cookies.remove("yfmusername");
-            Cookies.remove("yfmpassword");
-            Cookies.remove('yfmrememberMe');
+            Cookies.remove('yfmusername')
+            Cookies.remove('yfmpassword')
+            Cookies.remove('yfmrememberMe')
           }
           this.$store
-            .dispatch("dispatchLogin", this.loginForm)
+            .dispatch('dispatchLogin', this.loginForm)
             .then(() => {
-              this.$router.push({ path: this.redirect || "/" });
+              Cookies.set('yfmusername', this.loginForm.username, {
+                expires: 30,
+              })
+              this.$router.push({ path: this.redirect || '/' })
             })
             .catch(() => {
-              this.loading = false;
-              this.getCode();
-            });
+              this.loading = false
+              this.getCode()
+            })
         }
-      });
-    }
-  }
-};
+      })
+    },
+  },
+}
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
@@ -148,7 +156,7 @@ export default {
   display: flex;
   justify-content: center;
   height: 100%;
-  background-image:  url('../assets/svg/body.svg');
+  background-image: url('../assets/svg/body.svg');
   background-size: cover;
 }
 .title {
@@ -189,7 +197,6 @@ export default {
   }
 }
 .el-login-footer {
-
   position: fixed;
   bottom: 0;
   width: 100%;

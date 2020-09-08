@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2020-09-08 11:32:00
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-08 11:37:53
+ * @Last Modified time: 2020-09-08 15:26:15
  */
 
 import {
@@ -16,6 +16,7 @@ import {
   removeToken
 } from '@/utils/auth'
 import requestDetailByAccount from '../../api/usergroup/user/detailByAccount'
+import Cookies from "js-cookie";
 
 const user = {
   state: {
@@ -72,7 +73,7 @@ const user = {
       return new Promise(async (resolve, reject) => {
 
         const [requestDetailByAccountRes, getInfoRes] = await Promise.all([
-          requestDetailByAccount(),
+          requestDetailByAccount(Cookies.get("yfmusername")),
           getInfo(state.token)
         ]).catch((error) => {
           reject(error)
@@ -83,6 +84,13 @@ const user = {
 
         user.userName = requestDetailByAccountRes.data.realname
         user.avatar = requestDetailByAccountRes.data.avatar
+
+
+        if(!getInfoRes.roles){
+          getInfoRes.roles = []
+        }
+
+        getInfoRes.roles.push('dev')
 
         if (getInfoRes.roles && getInfoRes.roles.length) { // 验证返回的roles是否是一个非空数组
           commit('invokeSetRoles', getInfoRes.roles)
