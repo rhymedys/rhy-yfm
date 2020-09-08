@@ -105,9 +105,9 @@ export default {
       // });
     },
     getCookie() {
-      const username = Cookies.get("username");
-      const password = Cookies.get("password");
-      const rememberMe = Cookies.get('rememberMe')
+      const username = Cookies.get("yfmusername");
+      const password = Cookies.get("yfmpassword");
+      const rememberMe = Cookies.get('yfmrememberMe')
       this.loginForm = {
         username: username === undefined ? this.loginForm.username : username,
         password: password === undefined ? this.loginForm.password : decrypt(password),
@@ -119,13 +119,13 @@ export default {
         if (valid) {
           this.loading = true;
           if (this.loginForm.rememberMe) {
-            Cookies.set("username", this.loginForm.username, { expires: 30 });
-            Cookies.set("password", encrypt(this.loginForm.password), { expires: 30 });
-            Cookies.set('rememberMe', this.loginForm.rememberMe, { expires: 30 });
+            Cookies.set("yfmusername", this.loginForm.username, { expires: 30 });
+            Cookies.set("yfmpassword", encrypt(this.loginForm.password), { expires: 30 });
+            Cookies.set('yfmrememberMe', this.loginForm.rememberMe, { expires: 30 });
           } else {
-            Cookies.remove("username");
-            Cookies.remove("password");
-            Cookies.remove('rememberMe');
+            Cookies.remove("yfmusername");
+            Cookies.remove("yfmpassword");
+            Cookies.remove('yfmrememberMe');
           }
           this.$store
             .dispatch("dispatchLogin", this.loginForm)

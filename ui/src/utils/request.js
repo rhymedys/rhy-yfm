@@ -38,7 +38,7 @@ service.interceptors.response.use(res => {
           type: 'warning'
         }
       ).then(() => {
-        store.dispatch('LogOut').then(() => {
+        store.dispatch('dispatchLogout').then(() => {
           location.href = '/index';
         })
       })

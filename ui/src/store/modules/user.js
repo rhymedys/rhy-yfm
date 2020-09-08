@@ -1,44 +1,62 @@
-import { login, logout, getInfo } from '@/api/login'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+/*
+ * @Author: Rhymedys/Rhymedys@gmail.com
+ * @Date: 2020-09-08 11:32:00
+ * @Last Modified by: Rhymedys
+ * @Last Modified time: 2020-09-08 11:37:53
+ */
+
+import {
+  login,
+  logout,
+  getInfo
+} from '@/api/login'
+import {
+  getToken,
+  setToken,
+  removeToken
+} from '@/utils/auth'
+import requestDetailByAccount from '../../api/usergroup/user/detailByAccount'
 
 const user = {
   state: {
     token: getToken(),
     name: '',
     avatar: '',
-    roles: ['admin'],
+    roles: [],
     permissions: []
   },
 
   mutations: {
-    SET_TOKEN: (state, token) => {
+    invokeSetToken: (state, token) => {
       state.token = token
     },
-    SET_NAME: (state, name) => {
+    invokeSetName: (state, name) => {
       state.name = name
     },
-    SET_AVATAR: (state, avatar) => {
+    invokeSetAvatar: (state, avatar) => {
       state.avatar = avatar
     },
-    SET_ROLES: (state, roles) => {
+    invokeSetRoles: (state, roles) => {
       state.roles = roles
     },
-    SET_PERMISSIONS: (state, permissions) => {
+    invokeSetPermissions: (state, permissions) => {
       state.permissions = permissions
     }
   },
 
   actions: {
     // 登录
-    dispatchLogin({ commit }, userInfo) {
+    dispatchLogin({
+      commit
+    }, userInfo) {
       const username = userInfo.username.trim()
       const password = userInfo.password
       const code = userInfo.code
       const uuid = userInfo.uuid
       return new Promise((resolve, reject) => {
         login(username, password, code, uuid).then(res => {
-          setToken(res.token)
-          commit('SET_TOKEN', res.token)
+          setToken(res.data.token)
+          commit('invokeSetToken', res.data.token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -47,33 +65,49 @@ const user = {
     },
 
     // 获取用户信息
-    GetInfo({ commit, state }) {
-      return new Promise((resolve, reject) => {
-        getInfo(state.token).then(res => {
-          const user = res.user
-          const avatar = user.avatar == "" ? require("@/assets/image/profile.jpg") : process.env.VUE_APP_BASE_API + user.avatar;
-          if (res.roles && res.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', res.roles)
-            commit('SET_PERMISSIONS', res.permissions)
-          } else {
-            commit('SET_ROLES', ['ROLE_DEFAULT'])
-          }
-          commit('SET_NAME', user.userName)
-          commit('SET_AVATAR', avatar)
-          resolve(res)
-        }).catch(error => {
+    dispatchGetInfo({
+      commit,
+      state
+    }) {
+      return new Promise(async (resolve, reject) => {
+
+        const [requestDetailByAccountRes, getInfoRes] = await Promise.all([
+          requestDetailByAccount(),
+          getInfo(state.token)
+        ]).catch((error) => {
           reject(error)
         })
+
+
+        const user = getInfoRes.user
+
+        user.userName = requestDetailByAccountRes.data.realname
+        user.avatar = requestDetailByAccountRes.data.avatar
+
+        if (getInfoRes.roles && getInfoRes.roles.length) { // 验证返回的roles是否是一个非空数组
+          commit('invokeSetRoles', getInfoRes.roles)
+          commit('invokeSetPermissions', getInfoRes.permissions)
+        } else {
+          commit('invokeSetRoles', ['ROLE_DEFAULT'])
+        }
+
+        commit('invokeSetName', user.userName)
+        commit('invokeSetAvatar', user.avatar)
+        resolve(getInfoRes)
+
       })
     },
 
     // 退出系统
-    LogOut({ commit, state }) {
+    dispatchLogout({
+      commit,
+      state
+    }) {
       return new Promise((resolve, reject) => {
         logout(state.token).then(() => {
-          commit('SET_TOKEN', '')
-          commit('SET_ROLES', [])
-          commit('SET_PERMISSIONS', [])
+          commit('invokeSetToken', '')
+          commit('invokeSetRoles', [])
+          commit('invokeSetPermissions', [])
           removeToken()
           resolve()
         }).catch(error => {
@@ -83,9 +117,11 @@ const user = {
     },
 
     // 前端 登出
-    FedLogOut({ commit }) {
+    dispatchFedLogOut({
+      commit
+    }) {
       return new Promise(resolve => {
-        commit('SET_TOKEN', '')
+        commit('invokeSetToken', '')
         removeToken()
         resolve()
       })

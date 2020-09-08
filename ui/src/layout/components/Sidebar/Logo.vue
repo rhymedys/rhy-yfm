@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import logoImg from '@/assets/logo/logo.png'
+// import logoImg from '@/assets/logo/logo.png'
 
 export default {
   name: 'SidebarLogo',
@@ -26,8 +26,8 @@ export default {
   },
   data() {
     return {
-      title: '若依管理系统',
-      logo: logoImg
+      title: '研发管理平台',
+      logo: ''
     }
   }
 }
@@ -48,8 +48,8 @@ export default {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background: #2b2f3a;
-  text-align: center;
+   background: #191a23 ;
+     text-align: center;
   overflow: hidden;
 
   & .sidebar-logo-link {
