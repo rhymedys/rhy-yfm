@@ -38,7 +38,7 @@ export const getRouters = () => {
           "hidden": false,
           "component": "Display/DisplayIndex/index",
           "meta": {
-            "title": "审核列表",
+            "title": "看板",
             "icon": "user"
           },
         },]

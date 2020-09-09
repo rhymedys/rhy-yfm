@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-11-20 14:49:46
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-09 15:12:12
+ * @Last Modified time: 2020-09-09 16:55:12
  */
 import moment from 'moment'
 import storyProgressStatus, {
@@ -255,6 +255,7 @@ function invokeBuildClassicalListDataMapByStoryId(data) {
   }
 
   return res
+
 }
 
 function invokeNormlizeInitCbData(data, planDetail) {
@@ -304,6 +305,8 @@ async function invokeRequestStoryBuildData() {
     developingRes
   } = this
 
+
+  console.log(storyRes)
   const mapStoryIdFn = (arr) => {
     return arr.map((val) => val.storyId)
   }
@@ -357,7 +360,7 @@ function invokeRequestInitData(ctx) {
     return {
       storyRes,
       preDevRes,
-      developingRes,
+      developingRes
     }
   }
 
@@ -406,12 +409,14 @@ export default {
     } = await invokeRequestInitData(
       this,
     )
-
-    await invokeRequestStoryBuildData.call(this)
-
     this.storyRes = storyRes
     this.preDevRes = preDevRes
     this.developingRes = developingRes
+
+
+    await invokeRequestStoryBuildData.call(this)
+
+
     this.loading = false
   },
   data() {
