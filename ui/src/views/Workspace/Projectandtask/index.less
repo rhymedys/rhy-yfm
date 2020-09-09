@@ -1,0 +1,176 @@
+.task-layout {
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 21, 41, .08);
+  height: ~'calc(100vh - 124px)';
+
+  >* {
+    user-select: none;
+  }
+
+  .task-table {
+    padding: 0 16px 14px 16px;
+    overflow: hidden;
+
+    &-classical {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      overflow: auto;
+      margin: 0 16px;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      position: relative;
+
+      .task {
+        flex: 1;
+        margin-right: 10px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+
+        &-drag {
+          transform: scale(0.9);
+        }
+
+        &-shadow {
+          box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+        }
+
+        &-vague {
+          -webkit-filter: blur(1px);
+          -moz-filter: blur(1px);
+          -ms-filter: blur(1px);
+          -o-filter: blur(1px);
+          filter: blur(1px);
+        }
+
+        .ivu-card-head {
+          >p {
+            font-size: 20px;
+          }
+        }
+
+
+        .ivu-card-body {
+          overflow: hidden;
+          height: 93%;
+          padding: 8px;
+
+          .task-list-no-data,
+          >ul {
+            height: 100%;
+            overflow: auto;
+          }
+        }
+
+
+        .operation {
+          font-size: 12px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          >a {
+            margin-right: 5px;
+            text-align: right;
+          }
+
+        }
+
+        &-wait {
+          border-color: #ffadd2;
+
+          .ivu-card-head {
+            background: #fff0f6;
+            border-color: #ffadd2;
+
+            >p {
+              color: #eb2f96 !important;
+            }
+          }
+
+          .task-list {
+
+            >li {
+              border-color: #ffadd2 !important;
+            }
+          }
+        }
+
+        &-doing {
+          border-color: #ffbb96;
+
+          .ivu-card-head {
+            background: #fff2e8;
+            border-color: #ffbb96;
+
+            >p {
+              color: #fa541c !important;
+            }
+          }
+
+          .task-list {
+            >li {
+              border-color: #ffbb96 !important;
+            }
+          }
+        }
+
+        &-pause {
+          border-color: #d3adf7;
+
+          .ivu-card-head {
+            background: #f9f0ff;
+            border-color: #d3adf7;
+
+            >p {
+              color: #722ed1 !important;
+            }
+          }
+
+          .task-list {
+            >li {
+              border-color: #d3adf7 !important;
+            }
+          }
+        }
+
+        &-done {
+          border-color: #b7eb8f;
+
+          .ivu-card-head {
+            background: #f6ffed;
+            border-color: #b7eb8f;
+
+            >p {
+              color: #52c41a !important;
+            }
+
+            .task-list {
+              >li {
+                border-color: #52c41a !important;
+              }
+            }
+          }
+
+
+        }
+
+        .task-list {
+          >li {
+            list-style: none;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px #dcdee2 dashed;
+
+            &:hover {
+              box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+            }
+          }
+        }
+      }
+    }
+  }
+}

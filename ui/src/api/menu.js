@@ -11,16 +11,32 @@ export const getRouters = () => {
     "msg": "操作成功",
     "code": 0,
     "data": [
+        {
+
+        "name": "Workspace",
+        "path": "/workspace",
+        "hidden": false,
+        "redirect": "noRedirect",
+        "component": "Layout",
+        "alwaysShow": false,
+        "meta": {
+          "title": "工作台",
+          "icon": "system"
+        },
+        "children": [{
+          "name": "Projectandtask",
+          "path": "projectandtask",
+          "hidden": false,
+          "component": "Workspace/Projectandtask/index",
+          "meta": {
+            "title": "工作台",
+            "icon": "user"
+          },
+        },]
+    },
 
     {
-        // "name": "Display",
-        // "path": "/Display",
-        // "hidden": false,
-        // "component": "Layout",
-        // "meta": {
-        //   "title": "看板",
-        //   "icon": "system"
-        // },
+ 
 
         "name": "Display",
         "path": "/display",
