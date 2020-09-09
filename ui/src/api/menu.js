@@ -10,7 +10,40 @@ export const getRouters = () => {
   return Promise.resolve({
     "msg": "操作成功",
     "code": 0,
-    "data": [{
+    "data": [
+
+    {
+        // "name": "Display",
+        // "path": "/Display",
+        // "hidden": false,
+        // "component": "Layout",
+        // "meta": {
+        //   "title": "看板",
+        //   "icon": "system"
+        // },
+
+        "name": "Display",
+        "path": "/display",
+        "hidden": false,
+        "redirect": "noRedirect",
+        "component": "Layout",
+        "alwaysShow": false,
+        "meta": {
+          "title": "看板",
+          "icon": "system"
+        },
+        "children": [{
+          "name": "DisplayIndex",
+          "path": "displayindex",
+          "hidden": false,
+          "component": "Display/DisplayIndex/index",
+          "meta": {
+            "title": "审核列表",
+            "icon": "user"
+          },
+        },]
+    },
+    {
         "name": "Auditing",
         "path": "/auditing",
         "hidden": false,
@@ -29,9 +62,61 @@ export const getRouters = () => {
           "meta": {
             "title": "审核列表",
             "icon": "user"
+          },
+        }, {
+          "name": "AuditingOverview",
+          "path": "overview",
+          "hidden": false,
+          "component": "Auditing/Overview/index",
+          "meta": {
+            "title": "任务情况",
+            "icon": "user"
           }
         }]
       },
+          {
+        "name": "Story",
+        "path": "/story",
+        "hidden": false,
+        "redirect": "noRedirect",
+        "component": "Layout",
+        "alwaysShow": true,
+        "meta": {
+          "title": "需求",
+          "icon": "system"
+        },
+        "children": [{
+          "name": "List",
+          "path": "list",
+          "hidden": false,
+          "component": "Story/List/index",
+          "meta": {
+            "title": "需求列表",
+            "icon": "user"
+          },
+        }, {
+          "name": "Manager",
+          "path": "manager",
+          "hidden": false,
+          "component": "Story/Manager/index",
+          "meta": {
+            "title": "需求管理",
+            "icon": "user"
+          }
+        },
+{
+          "name": "Plan",
+          "path": "plan",
+          "hidden": false,
+          "component": "Story/Plan/index",
+          "meta": {
+            "title": "需求计划",
+            "icon": "user"
+          }
+        },
+        ]
+      },
+                
       // {
       //   "name": "System",
       //   "path": "/system",

@@ -2,13 +2,13 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-08-13 16:45:45
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-09-20 09:26:17
+ * @Last Modified time: 2020-09-09 14:09:55
  */
 
 import Vue from 'vue'
 import moment from 'moment'
-import { requestTaskevaluateitemList } from '../../services/projecttask/taskevaluateitem'
-import { requestTaskevaluatecheckCheckTaskEvaluateCheck } from '../../services/projecttask/taskevaluatecheck'
+import { requestTaskevaluateitemList } from '@/api/projecttask/taskevaluateitem'
+import { requestTaskevaluatecheckCheckTaskEvaluateCheck } from '@/api/projecttask/taskevaluatecheck'
 import Component from '.'
 
 const ComponentConstuctor = Vue.extend(Component)

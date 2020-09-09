@@ -45,9 +45,10 @@
           <divider style="margin: 5px 0" dashed />
           <div class="operation">
             <span>{{ task.storyId }}</span>
-            <tag v-if="task.pri" :color="mapPriColorConfig(task).color">
-              {{ mapPriColorConfig(task).key }}
-            </tag>
+            <tag
+              v-if="task.pri"
+              :color="mapPriColorConfig(task).color"
+            >{{ mapPriColorConfig(task).key }}</tag>
             <div style="flex: 1" />
 
             <a
@@ -57,8 +58,7 @@
               :data-index="i"
               @mousemove="(e) => $emit('on-combine-task-mouse-move', e)"
               @mouseout="(e) => $emit('on-combine-task-mouse-out', e)"
-              >关联任务情况</a
-            >
+            >关联任务情况</a>
 
             <span
               v-if="item === 'developings'"
@@ -67,13 +67,8 @@
               :data-index="i"
               @mousemove="(e) => $emit('on-complete-rate-mouse-move', e)"
               @mouseout="(e) => $emit('on-complete-rate-mouse-out', e)"
-              >完成率:{{ Number(task.completeRate * 100).toFixed(2) }}%</span
-            >
-            <a
-              class="operation__details"
-              @click="$emit('on-story-detail-click', task.storyId)"
-              >详情</a
-            >
+            >完成率:{{ Number(task.completeRate * 100).toFixed(2) }}%</span>
+            <a class="operation__details" @click="$emit('on-story-detail-click', task.storyId)">详情</a>
           </div>
         </li>
       </ul>
@@ -83,8 +78,8 @@
 </template>
 
 <script>
-import projectAndProductClassical from '~/contants/projectAndProductClassical'
-import prior from '~/contants/prior'
+import projectAndProductClassical from '@/contants/projectAndProductClassical'
+import prior from '@/contants/prior'
 
 export default {
   name: 'ProjectAndProductTableClassicalCard',
@@ -122,6 +117,7 @@ export default {
 
     // 映射分类标题文本
     mapClassicalTitle(item) {
+
       const { projecteds, developings, developeds } = this.boardData
 
       let totalLen

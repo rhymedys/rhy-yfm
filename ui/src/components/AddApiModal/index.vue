@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import modalMixin from '~/mixins/modal'
-import variable from '~/contants/variable'
+import modalMixin from '@/mixins/modal'
+import variable from '@/contants/variable'
 
 export default {
   name: 'AddApiModal',

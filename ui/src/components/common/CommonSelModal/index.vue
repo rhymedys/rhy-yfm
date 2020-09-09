@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import modalMixin from '~/mixins/modal'
+import modalMixin from '@/mixins/modal'
 export default {
   name: 'Index',
   mixins: [modalMixin],

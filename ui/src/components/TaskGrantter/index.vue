@@ -100,8 +100,8 @@
 
 <script>
 import moment from 'moment'
-import BlackTipApi from '~/components/BlackTip/api'
-import GranttStoryOrTaskPriviewerApi from '~/components/GranttStoryOrTaskPriviewer/api'
+import BlackTipApi from '@/components/BlackTip/api'
+import GranttStoryOrTaskPriviewerApi from '@/components/GranttStoryOrTaskPriviewer/api'
 
 export default {
   name: 'TaskGrantter',

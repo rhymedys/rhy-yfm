@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import prior from '~/contants/prior'
+import prior from '@/contants/prior'
 
 export default {
   name: 'ProjectAndProductTable',

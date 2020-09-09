@@ -16,13 +16,25 @@ import permission from './directive/permission'
 
 import './assets/icons' // icon
 import './permission' // permission control
-import { getDicts } from "@/api/system/dict/data";
-import { getConfigKey } from "@/api/system/config";
-import { parseTime, resetForm, addDateRange, selectDictLabel, selectDictLabels, download, handleTree } from "@/utils/ruoyi";
+import {
+  getDicts
+} from "@/api/system/dict/data";
+import {
+  getConfigKey
+} from "@/api/system/config";
+import {
+  parseTime,
+  resetForm,
+  addDateRange,
+  selectDictLabel,
+  selectDictLabels,
+  download,
+  handleTree
+} from "@/utils/ruoyi";
 import Pagination from "@/components/Pagination";
 //自定义表格工具扩展
 import RightToolbar from "@/components/RightToolbar"
-import 'iview/dist/styles/iview.css';    // 使用 CSS
+import 'iview/dist/styles/iview.css'; // 使用 CSS
 
 import iView from 'view-design'
 
@@ -45,17 +57,29 @@ Vue.prototype.download = download
 Vue.prototype.handleTree = handleTree
 
 Vue.prototype.msgSuccess = function (msg) {
-  this.$message({ showClose: true, message: msg, type: "success" });
+  this.$message({
+    showClose: true,
+    message: msg,
+    type: "success"
+  });
 }
 
 Vue.prototype.msgError = function (msg) {
-  this.$message({ showClose: true, message: msg, type: "error" });
+  this.$message({
+    showClose: true,
+    message: msg,
+    type: "error"
+  });
 }
 
 Vue.prototype.msgInfo = function (msg) {
   this.$message.info(msg);
 }
 
+
+Vue.prototype.$getRouteQuery = function () {
+  return this.$route.query
+}
 // 全局组件挂载
 Vue.component('Pagination', Pagination)
 Vue.component('RightToolbar', RightToolbar)

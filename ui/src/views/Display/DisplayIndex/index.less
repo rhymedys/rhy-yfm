@@ -1,0 +1,220 @@
+.diplay-project-layout {
+  background-color: white;
+  box-shadow: 1px 1px 4px rgba(0, 21, 41, .08);
+  height: ~'calc(100vh - 124px)';
+  position: relative;
+
+  >* {
+    user-select: none;
+  }
+
+  .task-table {
+    padding: 0 16px 14px 16px;
+    overflow: hidden;
+
+    &-classical {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      overflow: auto;
+      margin: 0 16px;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      position: relative;
+
+
+
+      .task {
+        flex: 1;
+        margin-right: 10px;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+
+        .title {
+
+          >span {
+            font-size: 20px;
+            font-weight: bold;
+          }
+
+          >i {
+            float: right;
+            font-size: 16px;
+          }
+        }
+
+        .ivu-card-body {
+          overflow: hidden;
+          height: 93%;
+          padding: 8px;
+
+          >ul {
+            height: 100%;
+            overflow: auto;
+          }
+        }
+
+
+        .operation {
+          font-size: 12px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .progress {
+            width: 60%;
+
+            &__details {
+              margin-right: 5px;
+            }
+          }
+
+          >span {
+            margin-right: 10px;
+          }
+
+
+
+          .ivu-progress-success-bg {
+            display: none;
+          }
+
+          &__complete-rate {
+            font-weight: bold;
+            font-style: italic;
+            margin-left: 5px;
+            color: #57a3f3;
+
+
+          }
+        }
+
+        &-projecteds {
+          border-color: #ffadd2;
+
+          .ivu-card-head {
+            background: #fff0f6;
+            border-color: #ffadd2;
+
+
+            .title {
+
+              >span {
+                color: #eb2f96 !important;
+              }
+            }
+
+
+          }
+
+          .task-list {
+            >li {
+              border-color: #ffadd2 !important;
+
+              .bg {
+                background-color: #fff0f6;
+              }
+            }
+          }
+        }
+
+        &-developings {
+          border-color: #ffbb96;
+
+          .ivu-card-head {
+            background: #fff2e8;
+            border-color: #ffbb96;
+
+
+
+            .title {
+
+              >span {
+                color: #fa541c !important;
+              }
+            }
+
+
+          }
+
+          .task-list {
+            >li {
+              border-color: #ffbb96 !important;
+
+              .bg {
+                background-color: #fff2e8;
+              }
+            }
+          }
+        }
+
+        &-developeds {
+          border-color: #d3adf7;
+
+          .ivu-card-head {
+            background: #f9f0ff;
+            border-color: #d3adf7;
+
+
+            .title {
+
+              >span {
+                color: #722ed1 !important;
+              }
+            }
+
+
+          }
+
+          .task-list {
+            >li {
+              border-color: #d3adf7 !important;
+
+
+            }
+          }
+        }
+
+
+
+        .task-list {
+          .operation {
+            &__combine-task {
+              margin-right: 10px
+            }
+          }
+
+          >li {
+            list-style: none;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            margin: 5px;
+            padding: 5px;
+            border: 1px #dcdee2 dashed;
+            position: relative;
+
+            >div {
+              position: relative;
+            }
+
+
+            .bg {
+              position: absolute;
+              height: 100%;
+              width: 0%;
+              top: 0;
+              left: 0;
+              z-index: 0;
+              opacity: .5;
+            }
+
+            &:hover {
+              box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+            }
+          }
+        }
+      }
+    }
+  }
+}

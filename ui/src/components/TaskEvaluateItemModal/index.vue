@@ -85,7 +85,7 @@
 
 <script>
 import moment from 'moment'
-import { showSecondConfirm } from '~/utils'
+import { showSecondConfirm } from '@/utils'
 
 export default {
   name: 'TaskEvaluateItemModal',

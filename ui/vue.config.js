@@ -43,9 +43,10 @@ module.exports = {
     },
     disableHostCheck: true
   },
-  configureWebpack: {
-    name: name,
-    resolve: {
+  configureWebpack: config => {
+    config.name = name
+    config.resolve = {
+      extensions: ['.vue', '.jsx', '.js', '.json'],
       alias: {
         '@': resolve('src')
       }
@@ -79,7 +80,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()
@@ -107,10 +108,9 @@ module.exports = {
                 }
               }
             })
-          config.optimization.runtimeChunk('single'),
-          {
-             from: path.resolve(__dirname, './public/robots.txt'),//防爬虫文件
-             to:'./',//到根目录下
+          config.optimization.runtimeChunk('single'), {
+            from: path.resolve(__dirname, './public/robots.txt'), //防爬虫文件
+            to: './', //到根目录下
           }
         }
       )

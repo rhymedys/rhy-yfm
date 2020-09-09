@@ -97,7 +97,7 @@ export default {
   width: 300px;
   height: 500px;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   box-shadow: 2px 2px 4px 2px rgba(0, 21, 41, 0.08);
 
   .item {
