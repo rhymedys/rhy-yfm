@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-08-07 11:38:06
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-09 17:19:01
+ * @Last Modified time: 2020-09-10 15:30:59
  */
 
 import moment from 'moment'
@@ -570,9 +570,17 @@ export default {
         story,
         project
       } = row
-      openNewTab(
-        `workspace/projectandtask/task/detail/${id}?story=${story}&project=${project}&hideSlider=1`
-      )
+      // openNewTab(
+      //   `workspace/projectandtask/task/detail/${id}?story=${story}&project=${project}&hideSlider=1`
+      // )
+      this.$router.push({
+        path: '/projectandtask/taskdetail',
+        query: {
+          id,
+          story,
+          project
+        }
+      })
     },
     //  图表显示类型发生改变
     onTaskShowTypeChange() {

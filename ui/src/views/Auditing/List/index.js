@@ -464,9 +464,17 @@ export default {
         story,
         project
       } = row
-      openNewTab(
-        `workspace/projectandtask/task/detail/${id}?story=${story}&project=${project}&hideSlider=1`
-      )
+
+
+      this.$router.push({
+        path:'/projectandtask/taskdetail',
+        query:{
+          id,
+          story,
+          project
+        }
+      })
+
     },
     //  图表显示类型发生改变
     onTaskShowTypeChange() {

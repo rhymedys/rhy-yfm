@@ -155,11 +155,10 @@ export default {
 
     const { status, assignedTo } = query
 
-
     this.searchArea = {
       ...this.searchArea,
       assignedTo,
-      status
+      status,
     }
 
     await invokeRequestPagnationDataInServer(
@@ -185,7 +184,6 @@ export default {
           10
       }
     })
-
   },
   data() {
     return {
@@ -199,7 +197,14 @@ export default {
   methods: {
     // 点击查看需求详情
     onDetailClick(row) {
-      openNewTab(`story/detail/${row.id}`)
+      const { id } = row
+
+      this.$router.push({
+        path: '/storystatic/detail',
+        query: {
+          id,
+        },
+      })
     },
     onPagnationPageChangeProxy(toReqPage) {
       this.onPagnationPageChange(

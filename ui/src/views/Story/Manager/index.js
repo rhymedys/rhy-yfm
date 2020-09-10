@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-11-20 14:49:46
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-09 16:57:39
+ * @Last Modified time: 2020-09-10 15:52:04
  */
 import moment from 'moment'
 import storyProgressStatus, {
@@ -12,10 +12,6 @@ import storyProgressStatus, {
   mapKeyByValueFn,
 } from '@/contants/storyProgressStatus'
 import storyStage from '@/contants/storyStage'
-
-import {
-  openNewTab
-} from '@/utils'
 import {
   requestBoardStoryBoardInfoByProductPlan
 } from '@/api/projecttask/board'
@@ -564,7 +560,16 @@ export default {
     },
     // 点击详情
     onStoryDetailClick(item) {
-      openNewTab(`story/detail/${item.storyId}`)
+      const {
+        storyId
+      } = item
+
+      this.$router.push({
+        path: '/storystatic/detail',
+        query: {
+          id: storyId,
+        },
+      })
     },
 
     // 需求完成拖动
