@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2020-09-08 11:32:00
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-08 15:26:15
+ * @Last Modified time: 2020-09-10 16:37:26
  */
 
 import {
@@ -86,7 +86,7 @@ const user = {
         user.avatar = requestDetailByAccountRes.data.avatar
 
 
-        if(!getInfoRes.roles){
+        if (!getInfoRes.roles) {
           getInfoRes.roles = []
         }
 
@@ -112,15 +112,22 @@ const user = {
       state
     }) {
       return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
-          commit('invokeSetToken', '')
-          commit('invokeSetRoles', [])
-          commit('invokeSetPermissions', [])
-          removeToken()
-          resolve()
-        }).catch(error => {
-          reject(error)
-        })
+        commit('invokeSetToken', '')
+        commit('invokeSetRoles', [])
+        commit('invokeSetPermissions', [])
+        removeToken()
+
+        resolve()
+
+        // logout(state.token).then(() => {
+        //   commit('invokeSetToken', '')
+        //   commit('invokeSetRoles', [])
+        //   commit('invokeSetPermissions', [])
+        //   removeToken()
+        //   resolve()
+        // }).catch(error => {
+        //   reject(error)
+        // })
       })
     },
 

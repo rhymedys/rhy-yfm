@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-row :gutter="20">
+    <!-- <el-row :gutter="20">
       <el-col :span="6" :xs="24">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
@@ -54,7 +54,7 @@
           </el-tabs>
         </el-card>
       </el-col>
-    </el-row>
+    </el-row> -->
   </div>
 </template>
 
@@ -76,7 +76,7 @@ export default {
     };
   },
   created() {
-    this.getUser();
+    // this.getUser();
   },
   methods: {
     getUser() {
