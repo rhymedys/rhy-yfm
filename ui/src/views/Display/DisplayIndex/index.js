@@ -6,7 +6,7 @@
 
  * @Last Modified by: Rhymedys
 
- * @Last Modified time: 2020-09-10 19:52:29
+ * @Last Modified time: 2020-09-10 21:54:39
 
  */
 
@@ -445,13 +445,13 @@ export default {
     ])
 
     const isRequestProductplanQueryAllResOk =
-      requestProductplanQueryAllRes.data.code === 0
+      requestProductplanQueryAllRes.code === 0
 
-    const isRequestBuildQueryAllResOk = requestBuildQueryAllRes.data.code === 0
+    const isRequestBuildQueryAllResOk = requestBuildQueryAllRes.code === 0
 
     if (isRequestProductplanQueryAllResOk) {
       this.loadingProductplan = false
-      this.requestProductplanQueryAllRes = requestProductplanQueryAllRes.data.data.map(
+      this.requestProductplanQueryAllRes = requestProductplanQueryAllRes.data.map(
         (val) => {
           return {
             value: val.id,
@@ -463,7 +463,7 @@ export default {
 
     if (isRequestBuildQueryAllResOk) {
       this.loadingProductplan = false
-      this.requestBuildQueryAllRes = requestBuildQueryAllRes.data.data.map(
+      this.requestBuildQueryAllRes = requestBuildQueryAllRes.data.map(
         (val) => {
           return {
             value: val.id,

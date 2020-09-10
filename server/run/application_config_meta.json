@@ -1,0 +1,300 @@
+{
+  "keys": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+  "middleware": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "port": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+      "hostname": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+      "path": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "security": {
+    "csrf": {
+      "useSession": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+      "ignoreJSON": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+      "value": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "domainWhiteList": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+    "protocolWhiteList": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "hsts": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "assets": {
+    "publicPath": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js"
+  },
+  "view": {
+    "root": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+    "mapping": {
+      ".ejs": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js"
+    },
+    "cache": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "static": {
+    "dir": "F:\\WebstormProjects\\rhy-yfm\\server\\config\\config.default.js",
+    "prefix": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "session": {
+    "maxAge": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "helper": {
+    "shtml": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieDomain": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "schedule": {
+    "directory": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+  },
+  "multipart": {
+    "mode": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "autoFields": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "tmpdir": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "cleanSchedule": {
+      "cron": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-multipart\\config\\config.default.js"
+    }
+  },
+  "development": {
+    "watchDirs": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "logrotator": {
+    "filesRotateByHour": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "ejs": {
+    "root": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "cache": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.local.js",
+    "debug": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "compileDebug": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "delimiter": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.default.js",
+    "strict": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-view-ejs\\config\\config.default.js"
+  },
+  "cors": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg-cors\\config\\config.default.js",
+  "env": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "name": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "maxProxyCount": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "version": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "description": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "private": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-scripts": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-ejs": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "lodash": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "moment": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-cors": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "uuid": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "autod": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "autod-egg": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-bin": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-ci": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-mock": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "eslint": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "eslint-config-egg": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "webstorm-disable-index": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "engines": {
+      "node": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "scripts": {
+      "start": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "stop": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "dev": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "debug": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "test": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "test-local": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "cov": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "lint": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "ci": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "autod": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "ci": {
+      "version": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "baseDir": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "strict": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "depth": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "env": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "level": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheLookupInterval": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketTimeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "logging": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "serverTimeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+  "clusterClient": {
+    "maxWaitTime": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "F:\\WebstormProjects\\rhy-yfm\\server\\node_modules\\egg\\config\\config.default.js"
+}

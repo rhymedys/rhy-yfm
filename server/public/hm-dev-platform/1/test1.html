@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html>
+<head>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+	<title></title>
+</head>
+<body>
+		testhtml
+
+	<div id="out">
+	  <div id="inner">
+	</div>
+	</div>
+
+	<form id="form">
+		<input type="" name="123213" value="1">
+	</form>
+
+	<script type="text/javascript">
+		$.ajax({
+			url:'https://test3.mhealth100.com/ip-pat-web/pageStatisticsLogs!printPageOperatLogs.do',
+			data:$("#form").serialize(),
+			dataType:'json',
+			type:'post'
+		})
+	</script>
+
+</body>
+</html>
