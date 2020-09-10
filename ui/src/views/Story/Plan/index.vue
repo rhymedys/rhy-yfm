@@ -56,7 +56,7 @@ import pagnationMixin, {
 } from '@/mixins/pagnation.js'
 import { requestProductplanList } from '@/api/projecttask/productplan'
 import config from '@/config'
-import { openNewTab, makeDebounceFn } from '@/utils'
+import {  makeDebounceFn } from '@/utils'
 
 import SearchHeaderArea from '@/components/common/SearchHeaderArea'
 
@@ -161,7 +161,6 @@ export default {
   },
   methods: {
     onDetailClick(row) {
-      // openNewTab(`bugdetail/${row.id}`)
     },
     onPagnationPageChangeProxy(toReqPage) {
       this.onPagnationPageChange(

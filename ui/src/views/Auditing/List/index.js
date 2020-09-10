@@ -13,7 +13,6 @@ import {
 import {
   makeDebounceFn,
   showSecondConfirm,
-  openNewTab
 } from '@/utils'
 import config from '@/config/index'
 import prior from '@/contants/prior'

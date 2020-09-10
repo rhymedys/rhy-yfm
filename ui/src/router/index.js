@@ -108,6 +108,19 @@ export const constantRoutes = [{
     }]
   },
   {
+    path: '/projectandproduct',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'detail',
+      component: (resolve) => require(['@/views/Projectandproduct/Detail'], resolve),
+      name: 'ProjectDetail',
+      meta: {
+        title: '任务详情'
+      }
+    }]
+  },
+  {
     path: '/storystatic',
     component: Layout,
     hidden: true,

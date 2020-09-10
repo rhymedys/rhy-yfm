@@ -72,7 +72,7 @@ import pagnationMixin, {
 } from '@/mixins/pagnation.js'
 import { requestStoryList } from '@/api/projecttask/story'
 import config from '@/config'
-import { openNewTab, makeDebounceFn } from '@/utils'
+import { makeDebounceFn } from '@/utils'
 import storyStatus from '@/contants/storyStatus.js'
 import SearchHeaderArea from '@/components/common/SearchHeaderArea'
 

@@ -6,7 +6,7 @@
 
  * @Last Modified by: Rhymedys
 
- * @Last Modified time: 2020-09-09 16:43:15
+ * @Last Modified time: 2020-09-10 16:03:39
 
  */
 
@@ -23,9 +23,7 @@ import {
 import {
   requestBuildQueryAll
 } from '@/api/projecttask/build'
-import {
-  openNewTab
-} from '@/utils'
+
 import ProjectAndProductTypeSelector from '@/components/ProjectAndProductTypeSelector'
 
 import projectAndProductClassical from '@/contants/projectAndProductClassical'
@@ -686,9 +684,13 @@ export default {
     // 跳转需求详情
 
     onStoryDetailClick(storyId) {
-      openNewTab(
-        `workspace/display/projectandproduct/detail/${storyId}?hideSlider=1`
-      )
+
+      this.$router.push({
+        path: `/projectandproduct/detail`,
+        query: {
+          id: storyId
+        }
+      })
     },
     // 点击弹出选择计划弹窗
     onPlanSelectClick() {
