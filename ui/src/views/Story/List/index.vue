@@ -200,7 +200,7 @@ export default {
       const { id } = row
 
       this.$router.push({
-        path: '/storystatic/detail',
+        path: this.routePathPrefix + '/storystatic/detail',
         query: {
           id,
         },

@@ -1,5 +1,9 @@
-import { constantRoutes } from '@/router'
-import { getRouters } from '@/api/menu'
+import {
+  constantRoutes
+} from '@/router'
+import {
+  getRouters
+} from '@/api/menu'
 import Layout from '@/layout/index'
 
 const permission = {
@@ -15,12 +19,18 @@ const permission = {
   },
   actions: {
     // 生成路由
-    dispatchGenerateRoute({ commit }) {
+    dispatchGenerateRoute({
+      commit
+    }) {
       return new Promise(resolve => {
         // 向后端请求路由数据
         getRouters().then(res => {
           const accessedRoutes = filterAsyncRouter(res.data)
-          accessedRoutes.push({ path: '*', redirect: '/404', hidden: true })
+          accessedRoutes.push({
+            path: '*',
+            redirect: window.routePathPrefix + '/404',
+            hidden: true
+          })
           commit('SET_ROUTES', accessedRoutes)
           resolve(accessedRoutes)
         })
@@ -48,7 +58,7 @@ function filterAsyncRouter(asyncRouterMap) {
 }
 
 export const loadView = (view) => { // 路由懒加载
-  return (resolve) =>  require([`@/views/${view}`], resolve)
+  return (resolve) => require([`@/views/${view}`], resolve)
 }
 
 export default permission

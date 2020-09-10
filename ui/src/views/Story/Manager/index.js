@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-11-20 14:49:46
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-10 15:52:04
+ * @Last Modified time: 2020-09-10 19:52:12
  */
 import moment from 'moment'
 import storyProgressStatus, {
@@ -565,7 +565,7 @@ export default {
       } = item
 
       this.$router.push({
-        path: '/storystatic/detail',
+        path: this.routePathPrefix + '/storystatic/detail',
         query: {
           id: storyId,
         },

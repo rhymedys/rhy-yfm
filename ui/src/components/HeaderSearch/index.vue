@@ -56,6 +56,8 @@ export default {
   },
   mounted() {
     this.searchPool = this.generateRoutes(this.routes)
+
+    console.log(this.searchPool)
   },
   methods: {
     click() {

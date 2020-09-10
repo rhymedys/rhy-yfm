@@ -24,9 +24,11 @@ import Layout from '@/layout'
   }
  */
 
+const prefix = window.routePathPrefix = '/hm-dev-platform/h5/pc'
+
 // 公共路由
 export const constantRoutes = [{
-    path: '/redirect',
+    path: prefix + '/redirect',
     component: Layout,
     hidden: true,
     children: [{
@@ -35,26 +37,26 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/login',
+    path: prefix + '/login',
     component: (resolve) => require(['@/views/login'], resolve),
     hidden: true
   },
   {
-    path: '/404',
+    path: prefix + '/404',
     component: (resolve) => require(['@/views/Error/404'], resolve),
     hidden: true
   },
   {
-    path: '/401',
+    path: prefix + '/401',
     component: (resolve) => require(['@/views/Error/401'], resolve),
     hidden: true
   },
   {
     path: '',
     component: Layout,
-    redirect: 'index',
+    redirect: prefix + '/index',
     children: [{
-      path: 'index',
+      path: prefix + '/index',
       component: (resolve) => require(['@/views/index'], resolve),
       name: '首页',
       meta: {
@@ -66,7 +68,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/user',
+    path: prefix + '/user',
     component: Layout,
     hidden: true,
     redirect: 'noredirect',
@@ -81,7 +83,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/dict',
+    path: prefix + '/dict',
     component: Layout,
     hidden: true,
     children: [{
@@ -95,7 +97,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/projectandtask',
+    path: prefix + '/projectandtask',
     component: Layout,
     hidden: true,
     children: [{
@@ -108,7 +110,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/projectandproduct',
+    path: prefix + '/projectandproduct',
     component: Layout,
     hidden: true,
     children: [{
@@ -121,7 +123,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/storystatic',
+    path: prefix + '/storystatic',
     component: Layout,
     hidden: true,
     children: [{
@@ -134,7 +136,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/job',
+    path: prefix + '/job',
     component: Layout,
     hidden: true,
     children: [{
@@ -147,7 +149,7 @@ export const constantRoutes = [{
     }]
   },
   {
-    path: '/gen',
+    path: prefix + '/gen',
     component: Layout,
     hidden: true,
     children: [{

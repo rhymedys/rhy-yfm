@@ -41,6 +41,7 @@ import iView from 'view-design'
 import locale from 'view-design/dist/locale/zh-CN' // Change locale, check node_modules/iview/dist/locale
 
 
+
 Vue.use(iView, {
   locale,
 })
@@ -55,6 +56,7 @@ Vue.prototype.selectDictLabel = selectDictLabel
 Vue.prototype.selectDictLabels = selectDictLabels
 Vue.prototype.download = download
 Vue.prototype.handleTree = handleTree
+Vue.prototype.routePathPrefix = window.routePathPrefix
 
 Vue.prototype.msgSuccess = function (msg) {
   this.$message({

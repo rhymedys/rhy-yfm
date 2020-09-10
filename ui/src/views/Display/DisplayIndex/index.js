@@ -6,7 +6,7 @@
 
  * @Last Modified by: Rhymedys
 
- * @Last Modified time: 2020-09-10 16:03:39
+ * @Last Modified time: 2020-09-10 19:52:29
 
  */
 
@@ -686,7 +686,7 @@ export default {
     onStoryDetailClick(storyId) {
 
       this.$router.push({
-        path: `/projectandproduct/detail`,
+        path: this.routePathPrefix+`/projectandproduct/detail`,
         query: {
           id: storyId
         }

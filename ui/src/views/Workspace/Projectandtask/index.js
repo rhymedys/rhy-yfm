@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-08-07 11:38:06
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2020-09-10 16:04:07
+ * @Last Modified time: 2020-09-10 19:51:55
  */
 
 import moment from 'moment'
@@ -37,6 +37,7 @@ import {
 } from '@/api/projecttask/taskevaluatecheck'
 
 import Cookies from 'js-cookie'
+
 
 let requestTaskListPendingId = 0
 let requesTaskDetailPendingId = 0
@@ -570,7 +571,7 @@ export default {
         project
       } = row
       this.$router.push({
-        path: '/projectandtask/taskdetail',
+        path: this.routePathPrefix + '/projectandtask/taskdetail',
         query: {
           id,
           story,

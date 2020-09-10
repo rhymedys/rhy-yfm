@@ -158,53 +158,54 @@ export default {
   height: 100%;
   background-image: url('../assets/svg/body.svg');
   background-size: cover;
-}
-.title {
-  margin: 64px auto 30px auto;
-  text-align: center;
-  color: #707070;
-}
 
-.login-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
-  padding: 25px 25px 5px 25px;
-  .el-input {
-    height: 38px;
-    input {
+  .title {
+    margin: 64px auto 30px auto;
+    text-align: center;
+    color: #707070;
+  }
+
+  .login-form {
+    border-radius: 6px;
+    background: #ffffff;
+    width: 400px;
+    padding: 25px 25px 5px 25px;
+    .el-input {
       height: 38px;
+      input {
+        height: 38px;
+      }
+    }
+    .input-icon {
+      height: 39px;
+      width: 14px;
+      margin-left: 2px;
     }
   }
-  .input-icon {
-    height: 39px;
-    width: 14px;
-    margin-left: 2px;
+  .login-tip {
+    font-size: 13px;
+    text-align: center;
+    color: #bfbfbf;
   }
-}
-.login-tip {
-  font-size: 13px;
-  text-align: center;
-  color: #bfbfbf;
-}
-.login-code {
-  width: 33%;
-  height: 38px;
-  float: right;
-  img {
-    cursor: pointer;
-    vertical-align: middle;
+  .login-code {
+    width: 33%;
+    height: 38px;
+    float: right;
+    img {
+      cursor: pointer;
+      vertical-align: middle;
+    }
   }
-}
-.el-login-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-family: Arial;
+  .el-login-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-family: Arial;
 
-  letter-spacing: 1px;
-}
-.login-code-img {
-  height: 38px;
+    letter-spacing: 1px;
+  }
+  .login-code-img {
+    height: 38px;
+  }
 }
 </style>

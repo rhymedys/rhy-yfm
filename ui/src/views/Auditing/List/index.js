@@ -466,8 +466,8 @@ export default {
 
 
       this.$router.push({
-        path:'/projectandtask/taskdetail',
-        query:{
+        path: this.routePathPrefix + '/projectandtask/taskdetail',
+        query: {
           id,
           story,
           project

@@ -1,5 +1,8 @@
 import request from '@/utils/request'
 
+
+
+
 // 获取路由
 export const getRouters = () => {
   // return request({
@@ -7,13 +10,15 @@ export const getRouters = () => {
   //   method: 'get'
   // })
 
+  const prefix = window.routePathPrefix
+
   return Promise.resolve({
     "msg": "操作成功",
     "code": 0,
     "data": [{
 
         "name": "Workspace",
-        "path": "/workspace",
+        "path": prefix + "/workspace",
         "hidden": false,
         "redirect": "noRedirect",
         "component": "Layout",
@@ -38,7 +43,7 @@ export const getRouters = () => {
 
 
         "name": "Display",
-        "path": "/display",
+        "path": prefix + "/display",
         "hidden": false,
         "redirect": "noRedirect",
         "component": "Layout",
@@ -60,7 +65,7 @@ export const getRouters = () => {
       },
       {
         "name": "Auditing",
-        "path": "/auditing",
+        "path": prefix + "/auditing",
         "hidden": false,
         "redirect": "noRedirect",
         "component": "Layout",
@@ -91,7 +96,7 @@ export const getRouters = () => {
       },
       {
         "name": "Story",
-        "path": "/story",
+        "path": prefix + "/story",
         "hidden": false,
         "redirect": "noRedirect",
         "component": "Layout",
