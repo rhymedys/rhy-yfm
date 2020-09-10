@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-editor-container">
-
-    <panel-group @handleSetLineChartData="handleSetLineChartData" />
+    暂时么都无
+    <!-- <panel-group @handleSetLineChartData="handleSetLineChartData" />
 
     <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
       <line-chart :chart-data="lineChartData" />
@@ -23,18 +23,18 @@
           <bar-chart />
         </div>
       </el-col>
-    </el-row>
+    </el-row> -->
 
-    
+
   </div>
 </template>
 
 <script>
-import PanelGroup from './dashboard/PanelGroup'
-import LineChart from './dashboard/LineChart'
-import RaddarChart from './dashboard/RaddarChart'
-import PieChart from './dashboard/PieChart'
-import BarChart from './dashboard/BarChart'
+import PanelGroup from './Dashboard/PanelGroup'
+import LineChart from './Dashboard/LineChart'
+import RaddarChart from './Dashboard/RaddarChart'
+import PieChart from './Dashboard/PieChart'
+import BarChart from './Dashboard/BarChart'
 
 const lineChartData = {
   newVisitis: {
