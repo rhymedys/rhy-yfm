@@ -6,9 +6,11 @@
         :task-show-type="taskShowType"
         :board-type="boardType"
         :board-data="boardData"
+        :product-or-project-sub-classical-type="productOrProjectSubClassicalType"
         @on-button-click="onTaskTypeClick"
         @on-show-type-change="onTaskShowTypeChange"
         @on-product-or-project-classical-click="onProductOrProjectClassicalClick"
+        @on-product-or-project-sub-classical-button-click="onProductOrProjectSubClassicalButtonClick"
         @on-plan-click="onPlanSelectClick"
       />
 
@@ -19,7 +21,7 @@
       />
 
       <project-and-product-table-classical-card
-        v-if="taskShowType === 'classicalList'"
+        v-else-if="taskShowType === 'classicalList'"
         :board-data="boardData"
         @on-classical-info-mouse-move="onClassicalInfoMouseMove"
         @on-classical-info-mouse-out="onClassicalInfoMouseOut"
@@ -31,7 +33,7 @@
       />
 
       <task-grantter
-        v-if="taskShowType === 'grantt'"
+        v-else-if="taskShowType === 'grantt'"
         :project-gantt-story-info-list="projectGanttStoryInfoList"
         :start-time="startTime"
         :end-time="endTime"

@@ -6,7 +6,7 @@
 
  * @Last Modified by: Rhymedys
 
- * @Last Modified time: 2020-09-10 21:54:39
+ * @Last Modified time: 2020-09-11 15:02:53
 
  */
 
@@ -237,6 +237,9 @@ export default {
 
       boardData: {},
 
+      // 子分类
+      productOrProjectSubClassicalType: 'progress', // progress进度 people人员
+
       // 任务显示类型
 
       taskShowType: 'classicalList', // list ,classicalList,grantt
@@ -281,9 +284,6 @@ export default {
 
 
   async created() {
-
-
-    console.log('created')
 
     const {
       query
@@ -504,6 +504,7 @@ export default {
       this.tableConfig.type = type
     },
 
+    // 点击切换视图
     onTaskShowTypeChange() {
       let res
 
@@ -511,8 +512,10 @@ export default {
         res = 'classicalList'
       } else {
         res = 'list'
+
       }
 
+      this.productOrProjectSubClassicalType = 'progress'
       this.taskShowType = res
     },
 
@@ -533,6 +536,10 @@ export default {
             type,
           },
         })
+
+
+        this.productOrProjectSubClassicalType = 'progress'
+
 
         if (type !== 'grantt') {
           this.$nextTick(() => {
@@ -686,7 +693,7 @@ export default {
     onStoryDetailClick(storyId) {
 
       this.$router.push({
-        path: this.routePathPrefix+`/projectandproduct/detail`,
+        path: this.routePathPrefix + `/projectandproduct/detail`,
         query: {
           id: storyId
         }
@@ -742,5 +749,9 @@ export default {
 
       this.tableConfig.loading = false
     },
+    // 点击子分类
+    onProductOrProjectSubClassicalButtonClick(k) {
+      this.productOrProjectSubClassicalType = k
+    }
   },
 }

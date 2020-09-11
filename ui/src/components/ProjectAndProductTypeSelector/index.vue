@@ -6,8 +6,7 @@
         :key="item.k"
         :type="item.type || 'default'"
         @click="onProductOrProjectClassicalButtonClick(item)"
-        >{{ item.l }}</Button
-      >
+      >{{ item.l }}</Button>
     </ButtonGroup>
 
     <ButtonGroup v-if="taskShowType === 'list'" style="margin-right: 10px">
@@ -16,16 +15,25 @@
         :key="item.k"
         :type="item.type || 'default'"
         @click="onButtonClick(item)"
-        >{{ item.l }}</Button
-      >
+      >{{ item.l }}</Button>
     </ButtonGroup>
+
+    <template v-if="computeSubTypeVisiable">
+      <span class="subclassical"></span>
+      <ButtonGroup style="margin-right: 10px">
+        <Button
+          v-for="item of conputeProductOrProjectSubClassical"
+          :key="item.k"
+          :type="item.type || 'default'"
+          @click="onProductOrProjectSubClassicalButtonClick(item)"
+        >{{ item.l }}</Button>
+      </ButtonGroup>
+    </template>
 
     <a v-show="taskShowType !== 'grantt'" @click="$emit('on-show-type-change')">
       <Icon size="30" :type="computeShowType" />切换视图
     </a>
-    <span class="schdule" @click="$emit('on-plan-click')">
-      {{ computeDesc }}
-    </span>
+    <span class="schdule" @click="$emit('on-plan-click')">{{ computeDesc }}</span>
   </div>
 </template>
 
@@ -48,6 +56,10 @@ export default {
     boardData: {
       type: Object,
       default: () => {},
+    },
+    productOrProjectSubClassicalType: {
+      type: String,
+      default: 'progress',
     },
   },
   data() {
@@ -87,6 +99,29 @@ export default {
     }
   },
   computed: {
+    conputeProductOrProjectSubClassical() {
+      return [
+        {
+          k: 'progress',
+          l: '进度',
+          type:
+            this.productOrProjectSubClassicalType === 'progress' && 'primary',
+        },
+        {
+          k: 'people',
+          l: '人员',
+          type: this.productOrProjectSubClassicalType === 'people' && 'primary',
+        },
+      ]
+    },
+    // 显示子分类
+    computeSubTypeVisiable() {
+      return (
+        ['storyBoardInfoByProjectId', 'storyBoardInfoByProduct'].includes(
+          this.boardType
+        ) && this.taskShowType !== 'list'
+      )
+    },
     computeShowType() {
       return (
         (this.taskShowType === 'list' && 'ios-apps-outline') ||
@@ -114,8 +149,8 @@ export default {
     },
   },
   methods: {
-    onButtonClick(item) {
-      this.taskType = this.taskType.map((val) => {
+    invokeChangeClassical(key, item) {
+      this[key] = this[key].map((val) => {
         if (val.k === item.k) {
           val.type = 'primary'
         } else {
@@ -124,23 +159,35 @@ export default {
 
         return val
       })
+    },
+
+    onButtonClick(item) {
+      this.invokeChangeClassical('taskType', item)
 
       this.$emit('on-button-click', item.k)
     },
     onProductOrProjectClassicalButtonClick(item) {
-      this.productOrProjectClassical = this.productOrProjectClassical.map(
-        (val) => {
-          if (val.k === item.k) {
-            val.type = 'primary'
-          } else {
-            val.type = 'default'
-          }
-
-          return val
-        }
-      )
+      this.invokeChangeClassical('productOrProjectClassical', item)
 
       this.$emit('on-product-or-project-classical-click', item.k)
+    },
+
+    onProductOrProjectSubClassicalButtonClick(item) {
+      // this.invokeChangeClassical('productOrProjectSubClassical', item)
+
+      this.$emit('on-product-or-project-sub-classical-button-click', item.k)
+
+      // this.productOrProjectSubClassical = this.productOrProjectSubClassical.map(
+      //   (val) => {
+      //     if (val.k === item.k) {
+      //       val.type = 'primary'
+      //     } else {
+      //       val.type = 'default'
+      //     }
+
+      //     return val
+      //   }
+      // )
     },
   },
 }
@@ -149,6 +196,13 @@ export default {
 <style lang="less" scoped>
 .project-and-product-type {
   padding: 14px 16px;
+
+  // .subclassical {
+  //   height: 32px;
+  //   line-height: 32px;
+  //   vertical-align: middle;
+  //   margin-left: 10px;
+  // }
 
   .schdule {
     margin-right: 10px;

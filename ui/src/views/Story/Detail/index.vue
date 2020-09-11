@@ -5,7 +5,7 @@
         <Layout ref="layoutWrapper" class="story-detail-layout content-layout">
           <Layout class="story__desc">
             <h3 class="story__desc_title">
-              <tag color="blue">{{ $route.params.id }}</tag>
+              <tag color="blue">{{ $route.query.id }}</tag>
               <div>{{ storyspec.title }}</div>
             </h3>
             <div class="story__desc_detail">
