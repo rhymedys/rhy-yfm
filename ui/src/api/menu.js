@@ -25,7 +25,7 @@ export const getRouters = () => {
         "alwaysShow": false,
         "meta": {
           "title": "工作台",
-          "icon": "system"
+          "icon": "build"
         },
         "children": [{
           "name": "Projectandtask",
@@ -34,7 +34,7 @@ export const getRouters = () => {
           "component": "Workspace/Projectandtask/index",
           "meta": {
             "title": "工作台",
-            "icon": "user"
+            "icon": "build"
           },
         }, ]
       },
@@ -50,7 +50,7 @@ export const getRouters = () => {
         "alwaysShow": false,
         "meta": {
           "title": "看板",
-          "icon": "system"
+          "icon": "date"
         },
         "children": [{
           "name": "DisplayIndex",
@@ -59,7 +59,7 @@ export const getRouters = () => {
           "component": "Display/DisplayIndex/index",
           "meta": {
             "title": "看板",
-            "icon": "user"
+            "icon": "date"
           },
         }, ]
       },
@@ -72,7 +72,7 @@ export const getRouters = () => {
         "alwaysShow": true,
         "meta": {
           "title": "审核",
-          "icon": "system"
+          "icon": "swagger"
         },
         "children": [{
           "name": "AuditingList",
@@ -81,7 +81,7 @@ export const getRouters = () => {
           "component": "Auditing/List/index",
           "meta": {
             "title": "审核列表",
-            "icon": "user"
+            "icon": "skill"
           },
         }, {
           "name": "AuditingOverview",
@@ -90,7 +90,7 @@ export const getRouters = () => {
           "component": "Auditing/Overview/index",
           "meta": {
             "title": "任务情况",
-            "icon": "user"
+            "icon": "textarea"
           }
         }]
       },
@@ -103,7 +103,7 @@ export const getRouters = () => {
         "alwaysShow": true,
         "meta": {
           "title": "需求",
-          "icon": "system"
+          "icon": "row"
         },
         "children": [{
             "name": "List",
@@ -112,7 +112,7 @@ export const getRouters = () => {
             "component": "Story/List/index",
             "meta": {
               "title": "需求列表",
-              "icon": "user"
+              "icon": "form"
             },
           }, {
             "name": "Manager",
@@ -121,7 +121,7 @@ export const getRouters = () => {
             "component": "Story/Manager/index",
             "meta": {
               "title": "需求管理",
-              "icon": "user"
+              "icon": "excel"
             }
           },
           {
@@ -131,7 +131,7 @@ export const getRouters = () => {
             "component": "Story/Plan/index",
             "meta": {
               "title": "需求计划",
-              "icon": "user"
+              "icon": "job"
             }
           },
         ]

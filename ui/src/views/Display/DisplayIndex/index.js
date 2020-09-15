@@ -6,7 +6,7 @@
 
  * @Last Modified by: Rhymedys
 
- * @Last Modified time: 2020-09-11 15:02:53
+ * @Last Modified time: 2020-09-15 10:49:12
 
  */
 
@@ -37,6 +37,8 @@ import quickProgressPreviewerApi from '@/components/QuickProgressPreviewer/api'
 import quickCombineTaskPreviewerApi from '@/components/QuickComineTaskPreviewer/api'
 
 import ProjectAndProductTable from '@/components/ProjectAndProductTable'
+
+import ProjectAndProductTableClassicalCardByPeople from '@/components/ProjectAndProductTableClassicalCardByPeople'
 
 import ProjectAndProductTableClassicalCard from '@/components/ProjectAndProductTableClassicalCard'
 
@@ -280,6 +282,8 @@ export default {
     ProjectAndProductTable,
 
     ProjectAndProductTableClassicalCard,
+
+    ProjectAndProductTableClassicalCardByPeople
   },
 
 

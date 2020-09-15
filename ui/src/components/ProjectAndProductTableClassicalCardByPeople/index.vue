@@ -1,6 +1,6 @@
 <template>
   <div class="task-table task-table-classical">
-12312
+    12312
   </div>
 </template>
 
@@ -58,7 +58,6 @@ export default {
         }
       })
 
-      console.log(res)
       return res
     },
   },

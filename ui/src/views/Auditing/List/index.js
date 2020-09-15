@@ -64,7 +64,7 @@ const invokeRequestList = makeDebounceFn({
     }
 
 
-    params.assignedTo = Cookies.get('yfmusername')
+    params.assignedTo = this.$route.query.account || Cookies.get('yfmusername')
     params.nostatus = 'closed'
 
     const userListRes = await reqeustTaskList.call(this, params)
