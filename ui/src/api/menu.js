@@ -80,8 +80,8 @@ export const getRouters = () => {
           "hidden": false,
           "component": "Auditing/List/index",
           "meta": {
-            "title": "审核列表",
-            "icon": "skill"
+            "title": "任务情况",
+            "icon": "textarea"
           },
         }, {
           "name": "AuditingOverview",
@@ -89,8 +89,8 @@ export const getRouters = () => {
           "hidden": false,
           "component": "Auditing/Overview/index",
           "meta": {
-            "title": "任务情况",
-            "icon": "textarea"
+            "title": "审核列表",
+            "icon": "skill"
           }
         }]
       },
