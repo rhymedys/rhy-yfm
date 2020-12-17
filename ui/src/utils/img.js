@@ -2,7 +2,7 @@
  * @Author: Rhymedys/Rhymedys@gmail.com
  * @Date: 2019-10-18 15:22:41
  * @Last Modified by: Rhymedys
- * @Last Modified time: 2019-10-18 15:24:42
+ * @Last Modified time: 2020-12-17 14:13:48
  */
 
 export function mapImg(strDom) {
@@ -10,7 +10,7 @@ export function mapImg(strDom) {
     .replace(/src="\{.*?\}"/g, (match) => {
       return match.replace(/\{.*?\}/g, (idTemplate) => {
         const id = idTemplate.substr(1, idTemplate.length - 2)
-        return `//www.mhealth100.com/zentaopms/www/file-read-${id}`
+        return `//zentao.mhealth100.com/zentaopms/www/file-read-${id}`
       })
     })
     .replace(/<img/g, (match) => {
